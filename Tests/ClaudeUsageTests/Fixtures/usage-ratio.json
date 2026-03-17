@@ -1,0 +1,9 @@
+{
+  "session_used_ratio": 0.52,
+  "session_reset_at": "2030-03-18T10:30:00Z",
+  "seven_day": {
+    "utilization": 61,
+    "resets_at": "2030-03-21T10:30:00Z"
+  }
+}
+
