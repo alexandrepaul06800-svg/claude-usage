@@ -12,6 +12,15 @@ App macOS de menu bar pour suivre l'usage Claude sans garder `claude.ai` ouvert.
 - notifications de seuil, reset, et erreur de synchronisation
 - option "lancer au demarrage" via `ServiceManagement`
 
+## Pour qui
+
+Ce projet est surtout adapte si tu es:
+
+- sur macOS
+- a l'aise avec Xcode et Swift Package Manager
+- ok avec une installation manuelle
+- conscient que l'outil est non officiel et peut casser si `claude.ai` change
+
 ## Statut
 
 Le projet est utilisable, mais reste un outil communautaire non officiel.
@@ -32,6 +41,26 @@ Il depend actuellement d'un `sessionKey` navigateur et d'endpoints `claude.ai` n
 swift build
 swift test
 ```
+
+## Installation
+
+Il n'y a pas encore de build signe ou d'installateur "1 clic".
+
+Installation actuelle:
+
+1. clone le repo
+2. ouvre `Package.swift` dans Xcode
+3. ajoute `ClaudeUsage.entitlements` au package app
+4. build et lance l'app depuis Xcode
+5. colle ton `sessionKey` dans les reglages de l'app
+
+## Utilisation
+
+1. ouvre `claude.ai` dans ton navigateur
+2. recupere la valeur du cookie `sessionKey`
+3. ouvre Claude Usage
+4. colle le `sessionKey` dans l'onglet de connexion
+5. laisse l'`organization ID` vide si l'auto-detection fonctionne, sinon renseigne-le manuellement
 
 ## Configuration
 
@@ -56,6 +85,17 @@ Consulte aussi `SECURITY.md` avant de partager des logs, captures d'ecran, ou ex
 - licence: `MIT`
 - contributions: voir `CONTRIBUTING.md`
 - signalement responsable: voir `SECURITY.md`
+- code de conduite: voir `CODE_OF_CONDUCT.md`
+
+## Feuille de route
+
+Ameliorations utiles pour le projet:
+
+- release macOS plus simple a installer
+- captures d'ecran et demo dans le README
+- detection plus robuste de l'`organization ID`
+- reduction du stockage du payload brut de diagnostic
+- meilleure tolerance aux changements de schema cote `claude.ai`
 
 ## Limites connues
 
@@ -63,3 +103,9 @@ Consulte aussi `SECURITY.md` avant de partager des logs, captures d'ecran, ou ex
 - `Launch at Login` depend d'une app bundle signee pour un comportement complet hors environnement de dev
 - le package est pret a etre ouvert dans Xcode, mais aucun `.xcodeproj` manuel n'est fourni
 - le projet n'utilise pas l'API officielle Anthropic
+
+## Support
+
+- pour un bug: ouvre une issue GitHub avec les etapes de reproduction
+- pour une idee: ouvre une issue de feature request
+- pour un sujet sensible: passe par `SECURITY.md`
